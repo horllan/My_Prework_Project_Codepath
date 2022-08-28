@@ -14,10 +14,11 @@ class MainActivity : AppCompatActivity() {
 
 
         findViewById<Button>(R.id.btn_change_text).setOnClickListener {
-            val defaultText = findViewById<TextView>(R.id.display_text).text
-            if (findViewById<EditText>(R.id.user_text).text.toString() == "") {
-                findViewById<TextView>(R.id.display_text).text = defaultText
-            } else findViewById<TextView>(R.id.display_text).text = findViewById<EditText>(R.id.user_text).text
+            val newText = findViewById<EditText>(R.id.user_text).text
+            if (newText.isNotEmpty()) {
+                findViewById<TextView>(R.id.display_text).text = "Hello $newText"
+                findViewById<EditText>(R.id.user_text).setText("")
+            }
 
         }
 
